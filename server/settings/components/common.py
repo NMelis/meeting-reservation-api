@@ -158,7 +158,7 @@ MEDIA_ROOT = BASE_DIR.joinpath('media')
 # Django authentication system
 # https://docs.djangoproject.com/en/4.2/topics/auth/
 CSRF_TRUSTED_ORIGINS = [
-    'https://meeting.nmelis.com',
+    'https://meeting.duckvpn.app',
 ]
 AUTHENTICATION_BACKENDS = (
     'axes.backends.AxesBackend',

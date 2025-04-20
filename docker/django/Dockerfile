@@ -4,8 +4,8 @@
 
 FROM python:3.12.7-slim-bookworm AS development_build
 
-LABEL maintainer="meeting.nmelis.com"
-LABEL vendor="meeting.nmelis.com"
+LABEL maintainer="meeting.duckvpn.app"
+LABEL vendor="meeting.duckvpn.app"
 
 # `DJANGO_ENV` arg is used to make prod / dev builds:
 ARG DJANGO_ENV \

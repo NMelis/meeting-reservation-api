@@ -14,7 +14,7 @@ CSP_SCRIPT_SRC: tuple[str, ...] = (
     "'unsafe-eval'",
     "'unsafe-inline'",
     "http://ajax.googleapis.com",
-    "https://meeting.nmelis.com",
+    "https://meeting.duckvpn.app",
     "https://cdnjs.cloudflare.com"
 )
 CSP_IMG_SRC: tuple[str, ...] = ("'self'", "data:", "https://example.com")
@@ -24,7 +24,7 @@ CSP_STYLE_SRC: tuple[str, ...] = (
     "'unsafe-inline'",
     "https://fonts.googleapis.com",
     "https://cdnjs.cloudflare.com",
-    "https://meeting.nmelis.com",
+    "https://meeting.duckvpn.app",
 )
 CSP_DEFAULT_SRC: tuple[str, ...] = ("'none'",)
 CSP_CONNECT_SRC: tuple[str, ...] = ("'self'", "https://api.example.com")

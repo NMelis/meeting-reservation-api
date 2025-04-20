@@ -19,5 +19,5 @@ When developing locally, we use:
 
 ## Documentation
 
-Swagger documentation is available here: https://meeting.nmelis.com/api/schema/swagger-ui/#/
-Admin panel (login/pass: admin/admin): https://meeting.nmelis.com/admin
+Swagger documentation is available here: https://meeting.duckvpn.app/api/schema/swagger-ui/#/
+Admin panel (login/pass: admin/admin): https://meeting.duckvpn.app/admin
