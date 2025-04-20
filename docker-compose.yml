@@ -51,8 +51,8 @@ services:
         - "traefik.http.routers.static-secure.tls.certresolver=route53"
         - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
         - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
-        - "traefik.http.services.static.loadbalancer.server.port=8000"
-    command: python -We -bb manage.py runserver 0.0.0.0:8000
+        - "traefik.http.services.static.loadbalancer.server.port=8282"
+    command: python -We -bb manage.py runserver 0.0.0.0:8282
 
 # This task is an example of how to extend existing ones:
 #   some_worker:
