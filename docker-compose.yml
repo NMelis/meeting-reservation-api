@@ -43,15 +43,15 @@ services:
         DJANGO_DATABASE_HOST: db
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.static.rule=Host(`meeting.nmelis.app`)"
-        - "traefik.http.routers.static.entrypoints=http"
-        - "traefik.http.routers.static.middlewares=https-redirect"
-        - "traefik.http.routers.static-secure.rule=Host(`meeting.nmelis.app`)"
-        - "traefik.http.routers.static-secure.entrypoints=https"
-        - "traefik.http.routers.static-secure.tls.certresolver=route53"
+        - "traefik.http.routers.meeting.rule=Host(`meeting.nmelis.app`)"
+        - "traefik.http.routers.meeting.entrypoints=http"
+        - "traefik.http.routers.meeting.middlewares=https-redirect"
+        - "traefik.http.routers.meeting-secure.rule=Host(`meeting.nmelis.app`)"
+        - "traefik.http.routers.meeting-secure.entrypoints=https"
+        - "traefik.http.routers.meeting-secure.tls.certresolver=route53"
         - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
         - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
-        - "traefik.http.services.static.loadbalancer.server.port=8282"
+        - "traefik.http.services.meeting.loadbalancer.server.port=8282"
     command: python -We -bb manage.py runserver 0.0.0.0:8282
 
 # This task is an example of how to extend existing ones:
