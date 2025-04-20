@@ -8,6 +8,27 @@
 # in production.
 
 services:
+  nginx:
+    image: nginx:1.13.12
+    restart: always
+    networks:
+      proxy:
+    depends_on:
+      - web
+    volumes:
+      - django-static:/var/www/static
+      - ./docker/nginx/:/etc/nginx/project.conf
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.static.rule=Host(`meeting.nmelis.app`)"
+      - "traefik.http.routers.static.entrypoints=http"
+      - "traefik.http.routers.static.middlewares=https-redirect"
+      - "traefik.http.routers.static-secure.rule=Host(`meeting.nmelis.app`)"
+      - "traefik.http.routers.static-secure.entrypoints=https"
+      - "traefik.http.routers.static-secure.tls.certresolver=route53"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.https-redirect.redirectscheme.permanent=true"
+      - "traefik.http.services.static.loadbalancer.server.port=80"
   db:
     image: "postgres:17-alpine"
     restart: unless-stopped
@@ -31,7 +52,6 @@ services:
           - "meeting-reservation:dev"
           - "meeting-reservation:latest"
           - "*"
-
       volumes:
         - django-static:/var/www/django/static
       depends_on:
@@ -55,6 +75,9 @@ networks:
   postgres-net:
   # Network for your internals, use it by default:
   web-net:
+  proxy:
+    name: proxy
+    external: true
 
 volumes:
   postgres-data:
